@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Project 5</string>
+    <string name="email">Email</string>
+    <string name="pass_signup">Password (Not less than 6 characters)</string>
+    <string name="pass">Password</string>
+    <string name="cpass">Confirm Password</string>
+    <string name="regbtn">Register</string>
+    <string name="loginbtn">Sign In</string>
+    <string name="textReg"><u>"Don't have an account? Register here."</u></string>
+</resources>
