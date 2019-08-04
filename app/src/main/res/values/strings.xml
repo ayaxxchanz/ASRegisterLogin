@@ -7,4 +7,5 @@
     <string name="regbtn">Register</string>
     <string name="loginbtn">Sign In</string>
     <string name="textReg"><u>"Don't have an account? Register here."</u></string>
+    <string name="textSignIn"><u>"Already have an account? Sign in here."</u></string>
 </resources>

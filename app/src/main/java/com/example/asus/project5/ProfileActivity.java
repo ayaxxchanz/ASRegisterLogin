@@ -38,7 +38,7 @@ public class ProfileActivity extends AppCompatActivity {
                         mAuth.signOut();
                         Toast.makeText(ProfileActivity.this, "Logged out.",
                                 Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     }
                 }
             }
