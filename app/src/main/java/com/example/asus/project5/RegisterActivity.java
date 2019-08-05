@@ -61,12 +61,8 @@ public class RegisterActivity extends AppCompatActivity {
     public void  createAccount(){
         String Email = email.getText().toString().trim();
         String Password = password.getText().toString().trim();
-        if (TextUtils.isEmpty(Email)){
-            Toast.makeText(this, "A field is empty.", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(Password)){
-            Toast.makeText(this, "A field is empty.", Toast.LENGTH_SHORT).show();
+        if (TextUtils.isEmpty(Email) || TextUtils.isEmpty(Password)){
+            Toast.makeText(this, "Please fill in all fields.", Toast.LENGTH_SHORT).show();
             return;
         }
         mAuth.createUserWithEmailAndPassword(Email, Password)
@@ -83,7 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 finish();
                                 startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                             }else{
-                                Toast.makeText(RegisterActivity.this, "Couldn't register, try again.",
+                                Toast.makeText(RegisterActivity.this, task.getException().getMessage(),
                                         Toast.LENGTH_SHORT).show();
                             }
                         }catch (Exception e){

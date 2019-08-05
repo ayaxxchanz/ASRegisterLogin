@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".ForgotPass">
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -28,11 +28,10 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/loginlogo"
-                android:layout_marginBottom="20dp"/>
+                app:srcCompat="@drawable/loginlogo"/>
 
             <EditText
-                android:id="@+id/signup_email_input"
+                android:id="@+id/email_pass_forgot"
                 android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,46 +43,25 @@
                 android:drawablePadding="20dp"
                 android:textSize="14sp"/>
 
-            <EditText
-                android:id="@+id/signup_password_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:autofillHints="@string/pass"
-                android:fontFamily="@font/poppins"
-                android:hint="@string/pass"
-                android:inputType="textPassword"
-                android:drawableStart="@drawable/ic_lock_outline_black_24dp"
-                android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
-                android:drawablePadding="20dp"
-                android:textSize="14sp"/>
-
-            <TextView
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/pass_signup"
-                android:fontFamily="@font/poppins"
-                android:drawablePadding="20dp"
-                android:textColor="@color/colorWarning"/>
-
             <Button
-                android:id="@+id/button_register"
+                android:id="@+id/forgotbtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins"
-                android:text="@string/regbtn"
+                android:text="@string/forgotbtn"
                 android:textColor="#fff"
+                android:foreground="?attr/selectableItemBackground"
                 android:background="@drawable/buttonstyle"
-                android:foreground="?attr/selectableItemBackground"/>
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="@string/textSignIn"
-                android:id="@+id/textSignIn"
+                android:text="@string/textForgotBackSignIn"
+                android:id="@+id/textForgot"
                 android:fontFamily="@font/poppins"/>
         </LinearLayout>
 

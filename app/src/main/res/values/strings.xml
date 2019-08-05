@@ -6,6 +6,9 @@
     <string name="cpass">Confirm Password</string>
     <string name="regbtn">Register</string>
     <string name="loginbtn">Sign In</string>
+    <string name="forgotbtn">Reset Password</string>
     <string name="textReg"><u>"Don't have an account? Register here."</u></string>
     <string name="textSignIn"><u>"Already have an account? Sign in here."</u></string>
+    <string name="textForgot"><u>"Forgot Password</u></string>
+    <string name="textForgotBackSignIn"><u>"Sign in</u></string>
 </resources>

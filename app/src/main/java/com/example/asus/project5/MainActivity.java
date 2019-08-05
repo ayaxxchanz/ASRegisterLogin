@@ -1,6 +1,5 @@
 package com.example.asus.project5;
 
-        import android.app.ProgressDialog;
         import android.content.Intent;
         import android.os.Handler;
         import android.support.annotation.NonNull;
@@ -10,6 +9,7 @@ package com.example.asus.project5;
         import android.view.View;
         import android.widget.Button;
         import android.widget.EditText;
+        import android.widget.ProgressBar;
         import android.widget.TextView;
         import android.widget.Toast;
 
@@ -25,8 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private Button button;
-    private TextView register;
+    private TextView register, forgot;
     boolean doubleTap = false;
+    private ProgressBar mProgressBar;
 
     @Override
     public void onStart() {
@@ -49,7 +50,11 @@ public class MainActivity extends AppCompatActivity {
         password = (EditText)findViewById(R.id.login_password_input);
 
         button = (Button)findViewById(R.id.login);
+
         register = (TextView) findViewById(R.id.textReg);
+        forgot = (TextView) findViewById(R.id.textForgot);
+
+        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,10 +66,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (v == forgot){
+                    startActivity(new Intent(getApplicationContext(),
+                            ForgotPass.class));
+                }
+            }
+        });
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (v == button){
+                    mProgressBar.setVisibility(View.VISIBLE);
                     LoginUser();
                 }
             }
@@ -73,18 +89,15 @@ public class MainActivity extends AppCompatActivity {
     public void LoginUser(){
         String Email = email.getText().toString().trim();
         String Password = password.getText().toString().trim();
-        if (TextUtils.isEmpty(Email)){
+        if (TextUtils.isEmpty(Email) || TextUtils.isEmpty(Password)){
             Toast.makeText(this, "Please fill in all fields.", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (TextUtils.isEmpty(Password)){
-            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             return;
         }
         mAuth.signInWithEmailAndPassword(Email, Password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        mProgressBar.setVisibility(View.GONE);
                         if (task.isSuccessful()){
                             currentUser = mAuth.getCurrentUser();
                             finish();
