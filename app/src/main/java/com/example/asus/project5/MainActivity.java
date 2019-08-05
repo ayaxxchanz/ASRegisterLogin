@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         String Email = email.getText().toString().trim();
         String Password = password.getText().toString().trim();
         if (TextUtils.isEmpty(Email) || TextUtils.isEmpty(Password)){
+            mProgressBar.setVisibility(View.GONE);
             Toast.makeText(this, "Please fill in all fields.", Toast.LENGTH_SHORT).show();
             return;
         }

@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button button_register;
     private TextView signin;
     boolean doubleTap = false;
+    private ProgressBar mProgressBar;
 
 
     @Override
@@ -38,6 +40,8 @@ public class RegisterActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         signin = (TextView) findViewById(R.id.textSignIn);
+
+        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +57,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (v == button_register){
+                    mProgressBar.setVisibility(View.VISIBLE);
                     createAccount();
                 }
             }
@@ -62,6 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
         String Email = email.getText().toString().trim();
         String Password = password.getText().toString().trim();
         if (TextUtils.isEmpty(Email) || TextUtils.isEmpty(Password)){
+            mProgressBar.setVisibility(View.GONE);
             Toast.makeText(this, "Please fill in all fields.", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -71,6 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         try {
                             //check if successful
+                            mProgressBar.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
                                 //User is successfully registered and logged in
                                 //start Profile Activity here
