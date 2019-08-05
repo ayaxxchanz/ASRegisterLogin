@@ -2,6 +2,7 @@ package com.example.asus.project5;
 
         import android.app.ProgressDialog;
         import android.content.Intent;
+        import android.os.Handler;
         import android.support.annotation.NonNull;
         import android.support.v7.app.AppCompatActivity;
         import android.os.Bundle;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseUser currentUser;
     private Button button;
     private TextView register;
+    boolean doubleTap = false;
 
     @Override
     public void onStart() {
@@ -43,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         email = (EditText)findViewById(R.id.login_email_input);
         password = (EditText)findViewById(R.id.login_password_input);
 
@@ -95,5 +96,24 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+    @Override
+    public void onBackPressed() {
+        if (doubleTap) {
+            super.onBackPressed();
+            finishAffinity();
+        }
+
+        else{
+            Toast.makeText(this,"Press again to exit.",Toast.LENGTH_SHORT).show();
+            doubleTap = true;
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    doubleTap = false;
+                }
+            }, 2000);
+        }
     }
 }

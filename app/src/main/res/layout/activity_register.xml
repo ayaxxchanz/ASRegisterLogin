@@ -31,17 +31,32 @@
                 android:autofillHints="@string/email"
                 android:fontFamily="@font/poppins"
                 android:hint="@string/email"
+                android:drawableStart="@drawable/ic_mail_outline_black_24dp"
+                android:drawableLeft="@drawable/ic_mail_outline_black_24dp"
+                android:drawablePadding="20dp"
                 android:textSize="14sp"/>
 
             <EditText
                 android:id="@+id/signup_password_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autofillHints="@string/pass_signup"
+                android:autofillHints="@string/pass"
                 android:fontFamily="@font/poppins"
-                android:hint="@string/pass_signup"
+                android:hint="@string/pass"
                 android:inputType="textPassword"
-                android:textSize="14sp" />
+                android:drawableStart="@drawable/ic_lock_outline_black_24dp"
+                android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
+                android:drawablePadding="20dp"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pass_signup"
+                android:fontFamily="@font/poppins"
+                android:drawablePadding="20dp"
+                android:textColor="@color/colorWarning"/>
 
             <Button
                 android:id="@+id/button_register"
@@ -50,9 +65,9 @@
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins"
                 android:text="@string/regbtn"
-                android:textSize="14sp"
                 android:textColor="#fff"
-                android:background="@drawable/buttonstyle"/>
+                android:background="@drawable/buttonstyle"
+                android:foreground="?attr/selectableItemBackground"/>
 
             <TextView
                 android:layout_width="match_parent"

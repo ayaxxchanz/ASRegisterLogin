@@ -1,6 +1,7 @@
 package com.example.asus.project5;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText password, email;
     private Button button_register;
     private TextView signin;
+    boolean doubleTap = false;
 
 
     @Override
@@ -89,5 +91,24 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+    @Override
+    public void onBackPressed() {
+        if (doubleTap) {
+            super.onBackPressed();
+            finishAffinity();
+        }
+
+        else{
+            Toast.makeText(this,"Press again to exit.",Toast.LENGTH_SHORT).show();
+            doubleTap = true;
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    doubleTap = false;
+                }
+            }, 2000);
+        }
     }
 }

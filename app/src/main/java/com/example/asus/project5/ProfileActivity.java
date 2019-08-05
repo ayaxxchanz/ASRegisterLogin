@@ -1,6 +1,7 @@
 package com.example.asus.project5;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView Email;
     private TextView Uid;
     private Button logout;
+    boolean doubleTap = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,25 @@ public class ProfileActivity extends AppCompatActivity {
             String uid = user.getUid();
             Email.setText(email);
             Uid.setText(uid);
+        }
+    }
+    @Override
+    public void onBackPressed() {
+        if (doubleTap) {
+            super.onBackPressed();
+            finishAffinity();
+        }
+
+        else{
+            Toast.makeText(this,"Press again to exit.",Toast.LENGTH_SHORT).show();
+            doubleTap = true;
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    doubleTap = false;
+                }
+            }, 2000);
         }
     }
 }

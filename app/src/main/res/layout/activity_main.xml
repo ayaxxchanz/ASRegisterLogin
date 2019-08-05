@@ -31,6 +31,9 @@ tools:context=".MainActivity">
             android:autofillHints="@string/email"
             android:fontFamily="@font/poppins"
             android:hint="@string/email"
+            android:drawableStart="@drawable/ic_mail_outline_black_24dp"
+            android:drawableLeft="@drawable/ic_mail_outline_black_24dp"
+            android:drawablePadding="20dp"
             android:textSize="14sp"/>
 
         <EditText
@@ -41,7 +44,10 @@ tools:context=".MainActivity">
             android:fontFamily="@font/poppins"
             android:hint="@string/pass"
             android:inputType="textPassword"
-            android:textSize="14sp" />
+            android:drawableStart="@drawable/ic_lock_outline_black_24dp"
+            android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
+            android:drawablePadding="20dp"
+            android:textSize="14sp"/>
 
         <Button
             android:id="@+id/login"
@@ -50,8 +56,8 @@ tools:context=".MainActivity">
             android:layout_marginTop="20dp"
             android:fontFamily="@font/poppins"
             android:text="@string/loginbtn"
-            android:textSize="14sp"
             android:textColor="#fff"
+            android:foreground="?attr/selectableItemBackground"
             android:background="@drawable/buttonstyle"
             />
 
