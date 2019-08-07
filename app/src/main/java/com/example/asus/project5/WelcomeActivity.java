@@ -3,6 +3,7 @@ package com.example.asus.project5;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -23,6 +25,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     private ImageView[] dots;
 
     Button BnNext, BnSkip;
+    boolean doubleTap = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,6 +132,25 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         else{
             loadHome();
             new PreferenceManager(this).writePreference();
+        }
+    }
+    @Override
+    public void onBackPressed() {
+        if (doubleTap) {
+            super.onBackPressed();
+            finishAffinity();
+        }
+
+        else{
+            Toast.makeText(this,"Press again to exit.",Toast.LENGTH_SHORT).show();
+            doubleTap = true;
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    doubleTap = false;
+                }
+            }, 2000);
         }
     }
 }
