@@ -114,7 +114,8 @@
                 android:text="@string/regbtn"
                 android:textColor="#fff"
                 android:background="@drawable/buttonstyle"
-                android:foreground="?attr/selectableItemBackground"/>
+                android:foreground="?attr/selectableItemBackground"
+                android:onClick="loadSlides"/>
 
             <TextView
                 android:layout_width="match_parent"

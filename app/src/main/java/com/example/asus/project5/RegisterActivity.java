@@ -28,7 +28,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private EditText password, email, cpassword, username;
-    private Button button_register;
     private TextView signin;
     boolean doubleTap = false;
     private ProgressBar mProgressBar;
@@ -44,7 +43,6 @@ public class RegisterActivity extends AppCompatActivity {
         password =(EditText) findViewById(R.id.signup_password_input);
         cpassword =(EditText) findViewById(R.id.signup_cpass);
 
-        button_register = (Button)findViewById(R.id.button_register);
         mAuth = FirebaseAuth.getInstance();
 
         signin = (TextView) findViewById(R.id.textSignIn);
@@ -60,16 +58,11 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
-
-        button_register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (v == button_register){
-                    mProgressBar.setVisibility(View.VISIBLE);
-                    createAccount();
-                }
-            }
-        });
+    }
+    public void loadSlides(View view){
+        mProgressBar.setVisibility(View.VISIBLE);
+        new PreferenceManager(this).clearPreference();
+        createAccount();
     }
     public void  createAccount(){
         final String Email = email.getText().toString().trim();
@@ -97,7 +90,7 @@ public class RegisterActivity extends AppCompatActivity {
                             mProgressBar.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
                                 //User is successfully registered and logged in
-                                User user = new User(Username,Email,Password);
+                                User user = new User(Username);
                                 FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                         .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
@@ -107,8 +100,7 @@ public class RegisterActivity extends AppCompatActivity {
                                             //start Profile Activity here
                                             Toast.makeText(RegisterActivity.this, "Registration successful.",
                                                     Toast.LENGTH_SHORT).show();
-                                            finish();
-                                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                                            startActivity(new Intent(getApplicationContext(), WelcomeActivity.class));
                                         }
                                         else{
                                             Toast.makeText(RegisterActivity.this, task.getException().getMessage(),

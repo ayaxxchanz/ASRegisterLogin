@@ -14,10 +14,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class ForgotPass extends AppCompatActivity {
+public class ForgotPassActivity extends AppCompatActivity {
 
     ProgressBar mprogressBar;
     EditText email;
@@ -68,12 +67,12 @@ public class ForgotPass extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 mprogressBar.setVisibility(View.GONE);
                 if (task.isSuccessful()){
-                    Toast.makeText(ForgotPass.this,"Password sent.",Toast.LENGTH_LONG).show();
+                    Toast.makeText(ForgotPassActivity.this,"Password sent.",Toast.LENGTH_LONG).show();
                     startActivity(new Intent(getApplicationContext(),
                             MainActivity.class));
                 }
                 else{
-                    Toast.makeText(ForgotPass.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(ForgotPassActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
                 }
 
             }

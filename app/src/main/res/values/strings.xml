@@ -12,4 +12,16 @@
     <string name="textSignIn"><u>"Already have an account? Sign in here."</u></string>
     <string name="textForgot"><u>"Forgot Password</u></string>
     <string name="textForgotBackSignIn"><u>"Sign in</u></string>
+
+    <string name="slide_1_title">Make a List</string>
+    <string name="slide_1_desc">Make a list of anything from your favorite movies to your wish list!</string>
+
+    <string name="slide_2_title">Privacy</string>
+    <string name="slide_2_desc">"Your list can be made public or private. You control it."</string>
+
+    <string name="slide_3_title">Stay Connected</string>
+    <string name="slide_3_desc">"Discover, interact and stay connected with people who shared the same interest as you."</string>
+
+    <string name="my_preference">"com.abc.com.MyPref"</string>
+    <string name="my_preference_key">"com.abc.com.MyPrefKey"</string>
 </resources>

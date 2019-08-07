@@ -1,16 +1,14 @@
 package com.example.asus.project5;
 
 public class User {
-    public String username, email, password;
+    public String username;
 
     public User(){
 
     }
 
-    public User(String username, String email, String password){
+    public User(String username){
         this.username = username;
-        this.email = email;
-        this.password = password;
 
     }
 }

@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (v == forgot){
                     startActivity(new Intent(getApplicationContext(),
-                            ForgotPass.class));
+                            ForgotPassActivity.class));
                 }
             }
         });
