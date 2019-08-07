@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".ProfileActivity"
+    android:fitsSystemWindows="true">
     <LinearLayout
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
